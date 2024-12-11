@@ -6,7 +6,16 @@
                 <div class="products-header"></div>
                 <div class="list"></div>
             </div>
-            <div class="categories"></div>
+            <div class="categories" [ngStyle]="{'height': isOpenCategories ? 'auto' : '50px'}">
+                <div class="category" *ngFor="let category of categories">
+                    <p>{{ category.name }}</p>
+                </div>
+            </div>
+            <button (click)="changeHeightCategories()">
+                <span class="material-icons">
+                    {{ isOpenCategories ? 'expand_less' : 'expand_more' }}
+                </span>
+            </button>
         </div>
         <div class="checkout"></div>
     </div>
@@ -15,4 +24,3 @@
         <button>Pay ()</button>
     </div>
 </div>
-  

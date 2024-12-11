@@ -19,3 +19,41 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
+
+.products-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    padding: 10px 5px;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    height: 100%;
+    text-align: center;
+    padding: 5px;
+
+    p {
+        text-transform: capitalize;
+    }
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}

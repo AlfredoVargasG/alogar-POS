@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const productsRouter = require('./routes/products');
 const salesRouter = require('./routes/sales');
 const cartRouter = require('./routes/cart');
+const categoriesRouter = require('./routes/categories');
 const { fetchProducts, fetchCategories } = require('./web');
 const cors = require('cors');
 
@@ -29,6 +30,7 @@ initializeData();
 
 // Rutas
 app.use('/api/products', productsRouter);
+app.use('/api/categories', categoriesRouter)
 app.use('/api/sales', salesRouter);
 app.use('/api/cart', cartRouter);
 

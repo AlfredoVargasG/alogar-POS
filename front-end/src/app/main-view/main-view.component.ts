@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../services/api.service';
+import { ApiService } from '../services/api.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,9 +11,22 @@ import { CommonModule } from '@angular/common';
 })
 export class MainViewComponent implements OnInit {
   products: any[] = [];
+  categories: any[] = [];
+  isOpenCategories = false;
 
-  constructor(private productService: ProductService) {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
+    this.getCategories();
+  }
+
+  getCategories() {
+    this.apiService.getCategories().subscribe((data: any) => {
+      this.categories = data;
+    });
+  }
+
+  changeHeightCategories() {
+    this.isOpenCategories = !this.isOpenCategories;
   }
 }

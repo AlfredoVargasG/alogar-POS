@@ -113,7 +113,7 @@ async function fetchCategories() {
             const name = $(element).text().trim();
             categories.push({
                 id: index + 1,
-                name
+                name: name.toLowerCase()
             });
         });
 
