@@ -90,6 +90,8 @@ async function fetchProducts() {
                 return;
             }
             console.log('Productos insertados exitosamente:', newProducts.length);
+        }else {
+            console.log('No hay productos nuevos para insertar');
         }
     } catch (error) {
         console.error('Error al obtener o procesar productos:', error.message);
@@ -139,6 +141,8 @@ async function fetchCategories() {
                 return;
             }
             console.log('Categorías insertadas exitosamente:', newCategories.length);
+        }else {
+            console.log('No hay categorías nuevas para insertar');
         }
 
 
