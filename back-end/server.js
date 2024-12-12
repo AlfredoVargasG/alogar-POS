@@ -5,6 +5,7 @@ const productsRouter = require('./routes/products');
 const salesRouter = require('./routes/sales');
 const cartRouter = require('./routes/cart');
 const categoriesRouter = require('./routes/categories');
+const uploadRouter = require('./routes/firebase');
 const { fetchProducts, fetchCategories } = require('./web');
 const cors = require('cors');
 
@@ -33,6 +34,7 @@ app.use('/api/products', productsRouter);
 app.use('/api/categories', categoriesRouter)
 app.use('/api/sales', salesRouter);
 app.use('/api/cart', cartRouter);
+app.use('/api/firebase', uploadRouter);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 5000;

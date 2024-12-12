@@ -7,11 +7,12 @@
                 <div class="list"></div>
             </div>
             <div class="categories" [ngStyle]="{'height': isOpenCategories ? 'auto' : '50px'}">
-                <div class="category" *ngFor="let category of categories">
+                <div class="category" [ngClass]="{'active': category.id === activeCategoryId}" *ngFor="let category of categories" (click)="changeActiveCategory(category.id)">
+                    <app-categories-icons [category]="category.name"></app-categories-icons>
                     <p>{{ category.name }}</p>
                 </div>
             </div>
-            <button (click)="changeHeightCategories()">
+            <button (click)="changeHeightCategories()" class="open-categories">
                 <span class="material-icons">
                     {{ isOpenCategories ? 'expand_less' : 'expand_more' }}
                 </span>

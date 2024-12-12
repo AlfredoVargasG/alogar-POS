@@ -15,6 +15,10 @@ export class ApiService {
   }
 
   getCategories(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/categories`);
+    return this.http.get(`${this.apiUrl}/categories/`);
+  }
+
+  getIcons(category: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/firebase/${category}`);
   }
 }
