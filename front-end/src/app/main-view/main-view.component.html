@@ -1,27 +1,24 @@
-<div class="main-container">
-    <div class="header"></div>
-    <div class="main-panel">
-        <div class="products-list">
-            <div class="products">
-                <div class="products-header"></div>
-                <div class="list"></div>
-            </div>
-            <div class="categories" [ngStyle]="{'height': isOpenCategories ? 'auto' : '50px'}">
-                <div class="category" [ngClass]="{'active': category.id === activeCategoryId}" *ngFor="let category of categories" (click)="changeActiveCategory(category.id)">
-                    <app-categories-icons [category]="category.name"></app-categories-icons>
-                    <p>{{ category.name }}</p>
+<div class="container">
+    <div class="main-container">
+        <div class="header"></div>
+        <div class="main-panel">
+            <div class="products-list">
+                <div class="products">
+                    <div class="products-header"></div>
+                    <div class="list"></div>
                 </div>
+                <app-categories-icons [categories]="categories" [isOpenCategories]="isOpenCategories" ></app-categories-icons>
+                <button (click)="changeHeightCategories()" class="open-categories">
+                    <span class="material-icons">
+                        {{ isOpenCategories ? 'expand_less' : 'expand_more' }}
+                    </span>
+                </button>
             </div>
-            <button (click)="changeHeightCategories()" class="open-categories">
-                <span class="material-icons">
-                    {{ isOpenCategories ? 'expand_less' : 'expand_more' }}
-                </span>
-            </button>
+            <div class="checkout"></div>
         </div>
-        <div class="checkout"></div>
-    </div>
-    <div class="footer">
-        <button>Cancel Order</button>
-        <button>Pay ()</button>
+        <div class="footer">
+            <button>Cancel Order</button>
+            <button>Pay ()</button>
+        </div>
     </div>
 </div>

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-
 .main-container {
     width: 100%;
     height: 100vh;
@@ -23,47 +22,22 @@
     border-top-right-radius: 15px;
 }
 
-.products-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.categories {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    align-items: center;
-    gap: 10px;
-    overflow: hidden;
-    padding: 10px 5px;
-}
-
-.category {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+.main-panel {
+    width: 100%;
     height: 100%;
-    text-align: center;
-    padding: 5px 15px;
-    border-radius: 15px;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
 
-    p {
-        text-transform: capitalize;
-        font-size: 14px;
-        font-family: 'Roboto', sans-serif;
-    }
-
-    &.active {
-        background-color: rgb(14, 114, 27);
-        color: #fff;
-    }
+.products-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .open-categories {
@@ -73,6 +47,20 @@
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 p, h1, h2, h3, h4, h5, h6 {

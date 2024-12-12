@@ -10,7 +10,7 @@ const getAllCategories = async (req, res) => {
             throw new Error(error.message);
         }
 
-        res.json(data);
+        res.json(data.sort((a, b) => a.name.localeCompare(b.name)));
     } catch (error) {
         res.status(500).json({ error: 'Error al obtener categorias' });
     }

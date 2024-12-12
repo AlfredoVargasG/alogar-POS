@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { CommonModule } from '@angular/common';
 import { CategoriesIconsComponent } from '../categories-icons/categories-icons.component';
@@ -14,9 +14,9 @@ export class MainViewComponent implements OnInit {
   products: any[] = [];
   categories: any[] = [];
   isOpenCategories = false;
-  activeCategoryId = 1;
+  isLoading: boolean = true;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private changeDetector: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.getCategories();
@@ -25,11 +25,8 @@ export class MainViewComponent implements OnInit {
   getCategories() {
     this.apiService.getCategories().subscribe((data: any) => {
       this.categories = data;
+      this.changeDetector.detectChanges();
     });
-  }
-
-  changeActiveCategory(categoryId: number) {
-    this.activeCategoryId = categoryId;
   }
 
   changeHeightCategories() {

@@ -1,4 +1,9 @@
-<div class="icon-grid">
-  <img [src]="icon" alt="Category Icon">
+<div class="categories" *ngIf="!isLoading" [ngStyle]="{'height': isOpenCategories ? 'auto' : '80px'}">
+  <div class="category" *ngFor="let category of categories">
+    <img [src]="category.icon" alt="Category Icon">
+    <p>{{category.name}}</p>
+  </div>
 </div>
+
+<div class="loader" *ngIf="isLoading"></div>
   
