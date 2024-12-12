@@ -1,24 +1,31 @@
-<div class="container">
-    <div class="main-container">
-        <div class="header"></div>
-        <div class="main-panel">
-            <div class="products-list">
-                <div class="products">
-                    <div class="products-header"></div>
-                    <div class="list"></div>
+<div class="main-container">
+    <div class="header"></div>
+    <div class="main-panel">
+        <div class="products-list">
+            <div class="products">
+                <div class="products-header">
+                    <div class="add-product">
+                        <span class="material-icons">add</span>
+                        <p>Add New Item</p>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search product">
+                        <span class="material-icons">search</span>
+                    </div>
                 </div>
-                <app-categories-icons [categories]="categories" [isOpenCategories]="isOpenCategories" ></app-categories-icons>
-                <button (click)="changeHeightCategories()" class="open-categories">
-                    <span class="material-icons">
-                        {{ isOpenCategories ? 'expand_less' : 'expand_more' }}
-                    </span>
-                </button>
+                <div class="list"></div>
             </div>
-            <div class="checkout"></div>
+            <app-categories-icons [categories]="categories" [isOpenCategories]="isOpenCategories" ></app-categories-icons>
+            <button (click)="changeHeightCategories()" class="open-categories">
+                <span class="material-icons">
+                    {{ isOpenCategories ? 'expand_less' : 'expand_more' }}
+                </span>
+            </button>
         </div>
-        <div class="footer">
-            <button>Cancel Order</button>
-            <button>Pay ()</button>
-        </div>
+        <div class="checkout"></div>
+    </div>
+    <div class="footer">
+        <button>Cancel Order</button>
+        <button>Pay ()</button>
     </div>
 </div>
