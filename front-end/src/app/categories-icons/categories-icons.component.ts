@@ -11,11 +11,12 @@ import { ApiService } from '../services/api.service';
 export class CategoriesIconsComponent {
 
   @Input() categories: any[] = [];
-  @Input() isOpenCategories: boolean = false;
+  isOpenCategories: boolean = false;
   icons: any[] = [];
   isLoading: boolean = true;
   icon: string = '';
-  activeCategoryId = 1;
+  activeCategory = 'acompañamientos';
+  @Output() selectedCategory = new EventEmitter<string>();
 
   constructor(private apiService: ApiService) { }
 
@@ -42,7 +43,12 @@ export class CategoriesIconsComponent {
     })
   }
 
-  changeActiveCategory(categoryId: number) {
-    this.activeCategoryId = categoryId;
+  changeActiveCategory(category: string) {
+    this.activeCategory = category;
+    this.selectedCategory.emit(this.categories.find((cat) => cat.name === category).name);
+  }
+
+  changeHeightCategories() {
+    this.isOpenCategories = !this.isOpenCategories;
   }
 }

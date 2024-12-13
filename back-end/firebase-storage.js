@@ -31,5 +31,5 @@ const getImagesUrl = async (folderPath) => {
   }
 };
 
-module.exports = { getImagesUrl };
+module.exports = { getImagesUrl};
 

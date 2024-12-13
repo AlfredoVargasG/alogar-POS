@@ -1,5 +1,8 @@
 <div class="main-container">
-    <div class="header"></div>
+    <div class="header">
+        <img [src]="logo" alt="Alogar Logo" class="logo">
+        <div class="user"></div>
+    </div>
     <div class="main-panel">
         <div class="products-list">
             <div class="products">
@@ -13,19 +16,18 @@
                         <span class="material-icons">search</span>
                     </div>
                 </div>
-                <div class="list"></div>
+<!--                 <app-products-list [products]="filteredProducts"></app-products-list> -->
             </div>
-            <app-categories-icons [categories]="categories" [isOpenCategories]="isOpenCategories" ></app-categories-icons>
-            <button (click)="changeHeightCategories()" class="open-categories">
-                <span class="material-icons">
-                    {{ isOpenCategories ? 'expand_less' : 'expand_more' }}
-                </span>
-            </button>
+            <div class="categories">
+                <app-categories-icons [categories]="categories" (selectedCategory)="filterProducts($event)"></app-categories-icons>
+            </div>
         </div>
-        <div class="checkout"></div>
+        <div class="checkout">
+            <div class="boleta"></div>
+        </div>
     </div>
     <div class="footer">
-        <button>Cancel Order</button>
-        <button>Pay ()</button>
+        <button class="btn btn-cancel">Cancel Order</button>
+        <button class="btn btn-pay">Pay</button>
     </div>
 </div>

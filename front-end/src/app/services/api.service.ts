@@ -10,8 +10,12 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(page: number, limit: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/products/?page=${page}&limit=${limit}`);
+  getProducts(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/products`);
+  }
+
+  getProductsByCategory(category: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/products/category/${category}`);
   }
 
   getCategories(): Observable<any> {

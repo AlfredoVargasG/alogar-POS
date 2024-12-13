@@ -1,8 +1,13 @@
-<div class="categories" *ngIf="!isLoading" [ngStyle]="{'height': isOpenCategories ? 'auto' : '80px'}">
-  <div class="category" *ngFor="let category of categories" [ngClass]="{'active' : activeCategoryId === category.id}"  (click)="changeActiveCategory(category.id)">
-    <img [src]="category.icon" alt="Category Icon">
-    <p>{{category.name}}</p>
+<div class="d-flex flex-column align-items-center" style="gap: 20px;">
+  <div class="categories" *ngIf="!isLoading" [ngStyle]="{'height': isOpenCategories ? 'auto' : '80px'}">
+    <div class="category" *ngFor="let category of categories" [ngClass]="{'active' : activeCategory === category.name}"  (click)="changeActiveCategory(category.name)">
+      <img [src]="category.icon" alt="Category Icon">
+      <p>{{category.name}}</p>
+    </div>
   </div>
+  <span class="material-icons open-categories" (click)="changeHeightCategories()">
+    {{isOpenCategories ? 'expand_less' : 'expand_more'}}
+  </span>
 </div>
 
 <div class="loader" *ngIf="isLoading"></div>
