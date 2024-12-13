@@ -16,6 +16,7 @@ export class MainComponent {
   logoUrl: string = '';
   categories: any[] = [];
   filteredCategories: any[] = [];
+  selectedCategory: any;
 
   constructor(
     private apiService: ApiService,
@@ -40,6 +41,7 @@ export class MainComponent {
   getCategories() {
     this.apiService.getCategories().subscribe((data: any) => {
       this.categories = data.sort((a: any, b: any) => a.name.localeCompare(b.name));
+      this.selectedCategory = this.categories[0];
       this.getCategoriesIcons();
     })
   }
@@ -54,5 +56,9 @@ export class MainComponent {
         }
       })
     })
+  }
+
+  selectCategory(category: any) {
+    this.selectedCategory = category;
   }
 }

@@ -5,10 +5,26 @@ li {
     align-items: center;
     justify-content: flex-start;
     gap: 20px;
+    border-color: #198754;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 600;
+    color: #198754;
+    cursor: pointer;
 
     img {
         height: 100%;
         object-fit: contain;
         object-position: left;
+    }
+
+    &:hover {
+        background-color: #198754;
+        color: #fff;
+    }
+
+    &.active {
+        background-color: #198754;
+        color: #fff;
     }
 }

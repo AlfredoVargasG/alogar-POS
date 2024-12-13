@@ -1,5 +1,5 @@
-<ul class="list-group list-group-flush">
-    <li class="list-group-item" *ngFor="let category of categories">
+<ul class="list-group" style="width: 18rem;">
+    <li class="list-group-item" *ngFor="let category of categories" (click)="changeCategory(category)" [ngClass]="{'active': category.id === selectedCategory.id}">
         <img [src]="category.icon" alt="">
         {{category.name}}
     </li>

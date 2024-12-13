@@ -1,9 +1,10 @@
 <div [ngStyle]="{'display': isLoading ? 'flex' : 'none'}" class="container loading">
     <div class="loader"></div>
 </div>
-<div class="container" [ngStyle]="{'display': isLoading ? 'none' : 'block'}">
+<div class="container" [ngStyle]="{'display': isLoading ? 'none' : 'flex'}">
     <app-navbar [logoUrl]="logoUrl"></app-navbar>
     <div class="card">
-        <app-categories [categories]="filteredCategories"></app-categories>
+        <app-categories [categories]="filteredCategories" [selectedCategory]="selectedCategory" (selectCategory)="selectCategory($event)"></app-categories>
+        <div class="products"></div>
     </div>
 </div>
