@@ -1,0 +1,9 @@
+<div [ngStyle]="{'display': isLoading ? 'flex' : 'none'}" class="container loading">
+    <div class="loader"></div>
+</div>
+<div class="container" [ngStyle]="{'display': isLoading ? 'none' : 'block'}">
+    <app-navbar [logoUrl]="logoUrl"></app-navbar>
+    <div class="card">
+        <app-categories [categories]="filteredCategories"></app-categories>
+    </div>
+</div>
