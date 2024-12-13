@@ -1,6 +1,20 @@
-<ul class="list-group" style="width: 18rem;">
+<div class="d-flex justify-content-center mb-2">
+    <button class="btn btn-success" (click)="scrollCategoriesList('up')">
+        <span class="material-icons">
+            keyboard_arrow_up
+        </span>
+    </button>
+</div>
+<ul class="list-group" #scrollList>
     <li class="list-group-item" *ngFor="let category of categories" (click)="changeCategory(category)" [ngClass]="{'active': category.id === selectedCategory.id}">
         <img [src]="category.icon" alt="">
         {{category.name}}
     </li>
 </ul>
+<div class="d-flex justify-content-center mt-2">
+    <button class="btn btn-success" (click)="scrollCategoriesList('down')">
+        <span class="material-icons">
+            keyboard_arrow_down
+        </span>
+    </button>
+</div>

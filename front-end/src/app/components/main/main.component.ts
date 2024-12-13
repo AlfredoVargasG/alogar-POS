@@ -3,10 +3,11 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CategoriesComponent } from '../categories/categories.component';
+import { ProductsComponent } from "../products/products.component";
 
 @Component({
   selector: 'app-main',
-  imports: [CommonModule, NavbarComponent, CategoriesComponent],
+  imports: [CommonModule, NavbarComponent, CategoriesComponent, ProductsComponent],
   standalone: true,
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
@@ -17,6 +18,8 @@ export class MainComponent {
   categories: any[] = [];
   filteredCategories: any[] = [];
   selectedCategory: any;
+  products: any[] = [];
+  filteredProducts: any[] = [];
 
   constructor(
     private apiService: ApiService,
@@ -26,6 +29,7 @@ export class MainComponent {
   ngOnInit() {
     this.getLogo();
     this.getCategories();
+    this.getProducts();
     setTimeout(() => {
       this.changeDetectorRef.detectChanges();
       this.isLoading = false;
@@ -58,7 +62,19 @@ export class MainComponent {
     })
   }
 
+  getProducts() {
+    this.apiService.getProducts().subscribe((data: any) => {
+      this.products = data;
+      this.getProductsBySelectedCategory(this.selectedCategory);
+    })
+  }
+
+  getProductsBySelectedCategory(category: any) {
+    this.filteredProducts = this.products.filter((product: any) => product.categories.includes(category.name));
+  }
+
   selectCategory(category: any) {
     this.selectedCategory = category;
+    this.getProductsBySelectedCategory(category);
   }
 }

@@ -1,0 +1,13 @@
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 25px;
+    height: 450px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    height: 170px;
+    object-fit: cover;
+    object-position: center;
+}

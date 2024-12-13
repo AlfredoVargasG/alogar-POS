@@ -17,4 +17,8 @@ export class ApiService {
     getCategories() {
         return this.http.get(`${this.apiUrl}/categories`);
     }
+
+    getProducts() {
+        return this.http.get(`${this.apiUrl}/products`);
+    }
 }
