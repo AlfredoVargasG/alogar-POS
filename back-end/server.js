@@ -6,7 +6,7 @@ const salesRouter = require('./routes/sales');
 const cartRouter = require('./routes/cart');
 const categoriesRouter = require('./routes/categories');
 const uploadRouter = require('./routes/firebase');
-const { fetchProducts, fetchCategories } = require('./web');
+const { fetchProducts, fetchCategories } = require('./extra/web')
 const cors = require('cors');
 
 // Middleware

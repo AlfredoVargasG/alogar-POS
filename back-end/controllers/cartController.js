@@ -1,4 +1,4 @@
-const supabase = require('../db');
+const supabase = require('../extra/db')
 
 const addToCart = async (req, res) => {
     const { productId, userId, quantity } = req.body;

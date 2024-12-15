@@ -4,17 +4,4 @@
 
 <div class="container" [ngStyle]="{'display': isLoading ? 'none' : 'flex'}">
     <app-navbar [logoUrl]="logoUrl"></app-navbar>
-    <div class="row">
-        <div class="col-md-3 mb-4">
-            <app-categories 
-                [categories]="filteredCategories" 
-                [selectedCategory]="selectedCategory"
-                (selectCategory)="selectCategory($event)">
-            </app-categories>
-        </div>
-
-        <div class="col-md-9 mb-4">
-            <app-products [products]="filteredProducts"></app-products>
-        </div>
-    </div>
 </div>

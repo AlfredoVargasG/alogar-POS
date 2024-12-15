@@ -2,12 +2,10 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { CategoriesComponent } from '../categories/categories.component';
-import { ProductsComponent } from "../products/products.component";
 
 @Component({
   selector: 'app-main',
-  imports: [CommonModule, NavbarComponent, CategoriesComponent, ProductsComponent],
+  imports: [CommonModule, NavbarComponent],
   standalone: true,
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'

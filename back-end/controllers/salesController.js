@@ -1,4 +1,4 @@
-const supabase = require('../db');
+const supabase = require('../extra/db')
 
 const processCheckout = async (req, res) => {
     const { userId } = req.body;

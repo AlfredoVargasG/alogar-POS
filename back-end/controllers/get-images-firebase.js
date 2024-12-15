@@ -1,4 +1,4 @@
-const { getImagesUrl } = require('../firebase-storage')
+const { getImagesUrl } = require('../firebase/firebase-storage')
 
 const getImages = async (req, res) => {
     try {
