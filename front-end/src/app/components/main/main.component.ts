@@ -26,8 +26,6 @@ export class MainComponent {
 
   ngOnInit() {
     this.getLogo();
-    this.getCategories();
-    this.getProducts();
     setTimeout(() => {
       this.changeDetectorRef.detectChanges();
       this.isLoading = false;
@@ -38,41 +36,5 @@ export class MainComponent {
     this.apiService.getIcons('logo').subscribe((data: any) => {
       this.logoUrl = data.find((icon: any) => icon.url.includes('alogar-logo')).url;
     })
-  }
-
-  getCategories() {
-    this.apiService.getCategories().subscribe((data: any) => {
-      this.categories = data.sort((a: any, b: any) => a.name.localeCompare(b.name));
-      this.selectedCategory = this.categories[0];
-      this.getCategoriesIcons();
-    })
-  }
-
-  getCategoriesIcons() {
-    this.apiService.getIcons('images').subscribe((data: any) => {
-      this.filteredCategories = this.categories.map((category: any) => {
-        const icon = data.find((icon: any) => icon.url.includes(category.url.split('/')[4]));
-        return {
-          ...category,
-          icon: icon ? icon.url : ''
-        }
-      })
-    })
-  }
-
-  getProducts() {
-    this.apiService.getProducts().subscribe((data: any) => {
-      this.products = data;
-      this.getProductsBySelectedCategory(this.selectedCategory);
-    })
-  }
-
-  getProductsBySelectedCategory(category: any) {
-    this.filteredProducts = this.products.filter((product: any) => product.categories.includes(category.name));
-  }
-
-  selectCategory(category: any) {
-    this.selectedCategory = category;
-    this.getProductsBySelectedCategory(category);
   }
 }

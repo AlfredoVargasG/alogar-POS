@@ -1,5 +1,29 @@
-<nav class="navbar bg-success">
-    <a class="navbar-brand" href="#">
-        <img [src]="logoUrl" alt="Logo Alogar">
-    </a>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img [src]="logoUrl" alt="Logo" class="logo img-fluid me-2">
+            <span class="fw-bold text-white">ALOGAR</span>
+        </a>
+    </div>
 </nav>
+
+<!-- Menú lateral -->
+<div class="d-flex flex-column vh-100 border-end bg-light"
+    [ngClass]="{'menu-closed': !menuOpen, 'menu-open': menuOpen}">
+
+    <!-- Botón para abrir/cerrar el menú -->
+    <button class="btn btn-primary my-3 mx-auto toggle-btn" (click)="toggleMenu()">
+        <span class="material-icons">{{ menuOpen ? 'close' : 'menu' }}</span>
+    </button>
+
+    <!-- Menú -->
+    <ul class="nav flex-column w-100">
+        <li class="nav-item" *ngFor="let item of menuItems">
+            <a href="#" class="nav-link d-flex align-items-center px-4">
+                <i class="material-icons me-3">{{ item.icon }}</i>
+                <span class="fw-semibold" *ngIf="menuOpen">{{ item.label }}</span>
+            </a>
+        </li>
+    </ul>
+</div>
